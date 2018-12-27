@@ -1,3 +1,9 @@
 .navbar {
   background: #e2daa1;
+
+  li {
+    &:hover {
+      background: #dbd6b1;
+    }
+  }
 }
