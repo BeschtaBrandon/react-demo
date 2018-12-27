@@ -40,7 +40,7 @@ class Home extends Component {
   }
 
   renderHomeContent = () => {
-      const paragraph = "Time on this world is precious, so try and dedicate each day into making memories that you and others may cherish forever.";
+      const paragraph = "You have the ability to control your reaction for every event that takes place in your life. That is why life is what you make out of it. Therefore, time on this world is precious, so try and dedicate each day into making memories that you and others may cherish forever.";
 
       return (
         <div>
@@ -54,7 +54,11 @@ class Home extends Component {
                   <Image src={nasaPhoto} responsive />
                  </Col>
                  <Col xs={6} md={8}>
-                  <Panel.Body>{paragraph}</Panel.Body>
+                  <Panel.Body>
+                    <p>
+                      {paragraph}
+                    </p>
+                  </Panel.Body>
                  </Col>
                </Row>
              </Grid>
