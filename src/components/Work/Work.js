@@ -24,7 +24,7 @@ class Work extends Component {
         <ListGroupItem header="Paradigm - Web Developer" bsStyle="success" href="http://myparadigm.com">
           Jan 2018 - {time}
           <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;Responsible for developing web applications written using ReactJs, Laravel, PHP, and C#. Also, assist in deploying these apps to production environments to a manifold of construction
+        &nbsp;&nbsp;&nbsp;&nbsp;Responsible for developing web applications written using ReactJs, Laravel, PHP, and C#. Also, assist in deploying these apps to production environments for a manifold of construction
 clients. Our teams uses Docker Swarm and hosts our services on Azure.
           </p>
         </ListGroupItem>
@@ -37,13 +37,13 @@ clients. Our teams uses Docker Swarm and hosts our services on Azure.
         <ListGroupItem header="Thomson Reuters - Software Engineer" href="http://reuters.com">
           Oct 2014 - Nov 2016
           <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; Built a database migration tool using Java, Spring Boot, and Flyway to keep database schemas up to date. Implemented analytics tools to provide statistics on server usage and cluster management. In addition, wrote automated tests using Selenium framework to improve the quality of our analytics tools.
+            &nbsp;&nbsp;&nbsp;&nbsp;Built a database migration tool using Java, Spring Boot, and Flyway to keep database schemas up to date. Implemented analytics tools to provide statistics on server usage and cluster management. In addition, wrote automated tests using Selenium framework to improve the quality of our analytics tools.
           </p>
         </ListGroupItem>
         <ListGroupItem header="Maverick Software Consulting - Software Developer Intern" href="http://mavericksoftware.com">
           April 2015 - Jun 2016
           <p>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;Assisted developers at Thomson Reuters write pages for a web application that help lawyers and legal representatives organize their case information. Some technologies included in this process were Java, Spring Boot and Selenium.
           </p>
         </ListGroupItem>
       </ListGroup>
