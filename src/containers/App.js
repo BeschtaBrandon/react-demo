@@ -5,6 +5,7 @@ import moment from 'moment';
 import Contact from '../components/Contact/Contact'
 import Home from '../components/Home/Home';
 import NavBar from '../components/NavBar/NavBar';
+import Stocks from '../components/Stocks/Stocks';
 import Work from '../components/Work/Work';
 import './App.scss';
 
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/work" component={Work} />
           <Route path="/contact" component={Contact} />
+          <Route path="/stocks" component={Stocks} />
         </body>
         <footer>
           <ul className="list-inline">

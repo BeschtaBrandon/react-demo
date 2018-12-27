@@ -22,6 +22,11 @@ class NavBar extends Component {
             Contact
           </NavItem>
         </Nav>
+        <Nav pullRight>
+          <NavItem eventKey={3} href="/stocks">
+          Stocks
+          </NavItem>
+        </Nav>
       </Navbar>
     );
   }

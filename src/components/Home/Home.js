@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Grid, Image, Row, PageHeader, Panel } from 'react-bootstrap';
+import moment from 'moment';
 
 import './Home.scss';
 import nasaPhoto from '../../images/outer_space.jpg';
@@ -8,7 +9,9 @@ import portrait from '../../images/portrait.jpg';
 class Home extends Component {
 
   renderAboutSection = () => {
-    const paragraph = "Currently working as web developer who is eager to learn new web technologies and develop stronger software skills. Able to communicate well with a team, and thrive in a company who encourages their employees to question the status-quo and adapt to this ever-changing world.";
+
+    const curr_time = moment().format("dddd, MMMM Do YYYY, h:mm a");
+    const paragraph = "Currently working as web developer as of " + curr_time + ". Always eager to learn new web technologies and advance my software skills. Able to communicate well with a team. Also, thrive in a company who encourages their employees to question the status-quo and adapt to this ever-changing world.";
 
     return (
       <div className="well">
@@ -16,7 +19,7 @@ class Home extends Component {
           <Row>
             <Col xs={6} md={9}>
               <div className="paragraph">
-                { paragraph }
+                <p>{ paragraph }</p>
               </div>
             </Col>
             <Col xs={6} md={3} className="col-md-push-1">

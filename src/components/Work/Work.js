@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Panel, PageHeader } from 'react-bootstrap';
 import moment from 'moment'
 
+import uw_crest from '../../images/uw-crest.png';
+
 import './Work.scss';
 
 class Work extends Component {
@@ -34,9 +36,13 @@ class Work extends Component {
   }
 
   renderEducation = () => {
+    const paragraph = "Prior to starting my professional career, I studied Computer Sciences for four years at the University of Wisconsin - Madison. During that time, I was exposed to a variety of programming languages such as Assembly, C, C++, Java and PHP.";
+
     return (
       <Panel>
-        <Panel.Body>Prior to starting my professional career, I studied Computer Sciences for four years at the University of Wisconsin - Madison. During that time, I was exposed to a variety of programming languages such as Assembly, C, C++, Java and PHP</Panel.Body>
+        <Panel.Body>
+          { paragraph }
+        </Panel.Body>
       </Panel>
     );
   }
