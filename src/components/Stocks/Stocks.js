@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'react-bootstrap';
+import { PageHeader, Table } from 'react-bootstrap';
+import moment from 'moment';
 
 import './Stocks.scss'
 
@@ -16,7 +17,8 @@ class Stocks extends Component {
       appl: [],
       tsla: [],
       baba: [],
-      v: []
+      v: [],
+      sectors: []
     };
   }
 
@@ -160,9 +162,37 @@ class Stocks extends Component {
                 });
               }
             )
+
+            fetch("https://api.iextrading.com/1.0/stock/market/sector-performance")
+              .then(res => res.json())
+              .then(
+                (result) => {
+                  this.setState({
+                    isLoaded: true,
+                    sectors: result
+                  });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                  this.setState({
+                    isLoaded: true,
+                    error
+                  });
+                }
+              )
   }
 
-  renderStocksontent = () => {
+  renderStocksHeader = () => {
+    return (
+      <PageHeader>
+        Stocks
+      </PageHeader>
+    );
+  }
+
+  renderStocksContent = () => {
     const { error, isLoaded, appl, fb, cof, lnt, tsla, baba, v } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -229,6 +259,39 @@ class Stocks extends Component {
     }
   }
 
+  renderStocksSectorHeader = () => {
+    return (
+      <PageHeader>
+        <small>Sector Performance</small>
+      </PageHeader>
+    );
+  }
+
+  renderStocksSectorContent = () => {
+    const { error, isLoaded, sectors } = this.state;
+
+    return (
+      <Table condensed>
+        <thead>
+          <tr>
+            <th>Sector</th>
+            <th>Performance</th>
+            <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+            {sectors.slice(0,5).map(item => (
+            <tr key={item.name}>
+              <td>{item.name}</td>
+              <td>{parseFloat((item.performance * 100).toFixed(3))} %</td>
+              <td>{moment(item.lastUpdated).format("l")}</td>
+            </tr>
+            ))}
+        </tbody>
+      </Table>
+    );
+  }
+
   renderStockAttribution = () => {
     return (
       <p>Data provided for free by <a href="https://iextrading.com/developer/">IEX</a></p>
@@ -238,7 +301,10 @@ class Stocks extends Component {
   render() {
     return (
       <div>
-        { this.renderStocksontent() }
+        { this.renderStocksHeader() }
+        { this.renderStocksContent() }
+        { this.renderStocksSectorHeader() }
+        { this.renderStocksSectorContent() }
         { this.renderStockAttribution() }
       </div>
     );
