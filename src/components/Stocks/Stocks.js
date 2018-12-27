@@ -13,11 +13,34 @@ class Stocks extends Component {
       fb: [],
       cof: [],
       lnt: [],
-      appl: []
+      appl: [],
+      tsla: [],
+      baba: [],
+      v: []
     };
   }
 
   componentDidMount() {
+    fetch("https://api.iextrading.com/1.0/stock/baba/quote")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            baba: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+
     fetch("https://api.iextrading.com/1.0/stock/aapl/quote")
       .then(res => res.json())
       .then(
@@ -97,10 +120,50 @@ class Stocks extends Component {
             });
           }
         )
+
+        fetch("https://api.iextrading.com/1.0/stock/tsla/quote")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                tsla: result
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+
+          fetch("https://api.iextrading.com/1.0/stock/v/quote")
+            .then(res => res.json())
+            .then(
+              (result) => {
+                this.setState({
+                  isLoaded: true,
+                  v: result
+                });
+              },
+              // Note: it's important to handle errors here
+              // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+              (error) => {
+                this.setState({
+                  isLoaded: true,
+                  error
+                });
+              }
+            )
   }
 
   renderStocksontent = () => {
-    const { error, isLoaded, appl, fb, cof, lnt } = this.state;
+    const { error, isLoaded, appl, fb, cof, lnt, tsla, baba, v } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -111,6 +174,9 @@ class Stocks extends Component {
     const isFBStockUp = fb.iexRealtimePrice > fb.open ? "success" : "danger";
     const isLNTStockUp = lnt.iexRealtimePrice > lnt.open ? "success" : "danger";
     const isCOFStockUp = cof.iexRealtimePrice > cof.open ? "success" : "danger";
+    const isTSLAStockUp = tsla.iexRealtimePrice > tsla.open ? "success" : "danger";
+    const isBABAStockUp = baba.iexRealtimePrice > baba.open ? "success" : "danger";
+    const isVStockUp = v.iexRealtimePrice > v.open ? "success" : "danger";
 
     return (
         <Table condensed>
@@ -132,6 +198,11 @@ class Stocks extends Component {
               <td>{appl.symbol}</td>
               <td className={ isAPPLStockUp }>{appl.open}</td>
             </tr>
+            <tr key={baba.symbol}>
+              <td>{baba.companyName}</td>
+              <td>{baba.symbol}</td>
+              <td className={ isBABAStockUp }>{baba.open}</td>
+            </tr>
             <tr key={cof.symbol}>
               <td>{cof.companyName}</td>
               <td>{cof.symbol}</td>
@@ -142,16 +213,33 @@ class Stocks extends Component {
               <td>{fb.symbol}</td>
               <td className={ isFBStockUp }>{fb.open}</td>
             </tr>
+            <tr key={tsla.symbol}>
+              <td>{tsla.companyName}</td>
+              <td>{tsla.symbol}</td>
+              <td className={ isTSLAStockUp }>{tsla.open}</td>
+            </tr>
+            <tr key={v.symbol}>
+              <td>{v.companyName}</td>
+              <td>{v.symbol}</td>
+              <td className={ isVStockUp }>{v.open}</td>
+            </tr>
           </tbody>
         </Table>
       );
     }
   }
 
+  renderStockAttribution = () => {
+    return (
+      <p>Data provided for free by <a href="https://iextrading.com/developer/">IEX</a></p>
+    );
+  }
+
   render() {
     return (
       <div>
         { this.renderStocksontent() }
+        { this.renderStockAttribution() }
       </div>
     );
   }

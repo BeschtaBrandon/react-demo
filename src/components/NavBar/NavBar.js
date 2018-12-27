@@ -24,7 +24,10 @@ class NavBar extends Component {
         </Nav>
         <Nav pullRight>
           <NavItem eventKey={3} href="/stocks">
-          Stocks
+            Stocks
+          </NavItem>
+          <NavItem eventKey={4} href="/news">
+            News
           </NavItem>
         </Nav>
       </Navbar>
