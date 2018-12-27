@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Contact from '../components/Contact/Contact'
 import Home from '../components/Home/Home';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar/NavBar';
 import Work from '../components/Work/Work';
 import './App.scss';
 

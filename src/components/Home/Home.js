@@ -9,7 +9,7 @@ class Home extends Component {
   renderAboutSection = () => {
     return (
       <div className="well">
-        Currently working as web developer who is eager to learn new web technologies and developer stronger software skills. Able to communicate well with a team, and thrive in a company who encourages their employees to question the status-quo and adapt to this ever-changing world.
+        Currently working as web developer who is eager to learn new web technologies and develop stronger software skills. Able to communicate well with a team, and thrive in a company who encourages their employees to question the status-quo and adapt to this ever-changing world.
       </div>
     );
   }
