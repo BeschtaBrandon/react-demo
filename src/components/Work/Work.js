@@ -23,7 +23,7 @@ class Work extends Component {
         <ListGroupItem header="University of Wisconsin Madison Mechanical Engineering Department - Software Engineer" href="http://wisc.edu">
           Aug 2016 - Jan 2018
         </ListGroupItem>
-        <ListGroupItem header="Thomson Retuers - Software Engineer" href="http://reuters.com">
+        <ListGroupItem header="Thomson Reuters - Software Engineer" href="http://reuters.com">
           Oct 2014 - Nov 2016
         </ListGroupItem>
         <ListGroupItem header="Maverick Software Consulting - Software Developer Intern" href="http://mavericksoftware.com">
