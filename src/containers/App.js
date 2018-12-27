@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import moment from 'moment';
 
 import Contact from '../components/Contact/Contact'
@@ -28,6 +28,7 @@ class App extends Component {
           <li>&copy; {current_date}</li>
           <li><a href="https://www.linkedin.com/in/brandonbeschta/" className="fab fa-linkedin"></a></li>
           <li><a href="https://github.com/BeschtaBrandon" className="fab fa-github"></a></li>
+          <li><Link to="/contact">Contact me</Link></li>
           </ul>
         </footer>
       </div>
