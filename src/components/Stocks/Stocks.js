@@ -187,7 +187,7 @@ class Stocks extends Component {
   renderStocksHeader = () => {
     return (
       <PageHeader>
-        Stocks
+        Stocks <i class="fas fa-chart-line"></i>
       </PageHeader>
     );
   }

@@ -9,7 +9,7 @@ class Work extends Component {
   renderWorkHeader = () => {
     return (
       <PageHeader>
-        Professional Experiences
+        Professional Experiences <i class="fas fa-user-tie"></i>
       </PageHeader>
     );
   }

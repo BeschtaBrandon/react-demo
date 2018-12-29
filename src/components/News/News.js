@@ -40,7 +40,7 @@ class News extends Component {
   renderNewsHeader = () => {
     return (
       <PageHeader>
-        Latest news
+        Latest News <i class="fas fa-newspaper"></i>
       </PageHeader>
     );
   }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Breadcrumb, PageHeader } from 'react-bootstrap';
 
+import './Contact.scss';
+
 class Contact extends Component {
   renderContactHeader = () => {
     return (
       <PageHeader>
-        Contact
+        Contact <i class="fas fa-envelope"></i>
       </PageHeader>
     );
   }

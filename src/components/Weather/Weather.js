@@ -42,7 +42,7 @@ class Weather extends Component {
   renderWeatherHeader = () => {
     return (
       <PageHeader>
-        Weather
+        Weather <i class="fas fa-thermometer-half"></i>
       </PageHeader>
     );
   }
