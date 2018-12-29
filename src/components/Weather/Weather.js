@@ -107,7 +107,7 @@ class Weather extends Component {
                 <Col className="col-md-push-1" xs={12} md={2}>
                   <li key={item.toString()}>
                     <div>
-                      { weatherIcons[i] } {item.weather[0].main}
+                      { parseInt((item.main.temp - 273.15) * 9/5 + 32)}&#176;F { weatherIcons[i] } {item.weather[0].main}
                       <p>{ moment(item.dt_txt).format("MMMM D YYYY") }</p>
                     </div>
                   </li>
