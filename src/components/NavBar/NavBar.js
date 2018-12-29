@@ -29,6 +29,9 @@ class NavBar extends Component {
           <NavItem eventKey={4} href="/news">
             News
           </NavItem>
+          <NavItem eventKey={5} href="/weather">
+            Weather
+          </NavItem>
         </Nav>
       </Navbar>
     );

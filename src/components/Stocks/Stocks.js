@@ -214,7 +214,7 @@ class Stocks extends Component {
             <tr>
               <th>Company</th>
               <th>Symbol</th>
-              <th>Price</th>
+              <th>Price (US Dollars)</th>
             </tr>
           </thead>
           <tbody>
@@ -268,7 +268,7 @@ class Stocks extends Component {
   }
 
   renderStocksSectorContent = () => {
-    const { error, isLoaded, sectors } = this.state;
+    const { sectors } = this.state;
 
     return (
       <Table condensed>

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Panel, PageHeader } from 'react-bootstrap';
 import moment from 'moment'
 
-import uw_crest from '../../images/uw-crest.png';
-
 import './Work.scss';
 
 class Work extends Component {
