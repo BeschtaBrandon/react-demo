@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, PageHeader } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Image, PageHeader } from 'react-bootstrap';
+import moment from 'moment';
 
 import './News.scss';
 
@@ -55,9 +56,17 @@ class News extends Component {
 
       return (
         <ListGroup>
-          {articles.slice(0,8).map(item => (
-            <ListGroupItem key={item.source.id} href={item.url} header={item.title}>{item.description}</ListGroupItem>
-          ))}
+            {articles.slice(0,8).map(item => (
+              <ListGroupItem className="media" href={item.url}>
+                  <div className="media-left">
+                    <Image className="media-object" src={item.urlToImage} />
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{item.title}</h4>
+                    { item.description} {moment(item.publishedAt).format("MMMM D YYYY")}
+                  </div>
+              </ListGroupItem>
+            ))}
         </ListGroup>
       );
     }
