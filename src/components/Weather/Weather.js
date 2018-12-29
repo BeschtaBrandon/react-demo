@@ -17,7 +17,7 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    fetch("http://api.openweathermap.org/data/2.5/forecast?zip=53715&APPID=29058f38b91822420846508014b42fc0")
+    fetch("https://api.openweathermap.org/data/2.5/forecast?zip=53715&APPID=29058f38b91822420846508014b42fc0")
       .then(res => res.json())
       .then(
         (result) => {
