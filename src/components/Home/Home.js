@@ -17,12 +17,12 @@ class Home extends Component {
       <div className="well">
         <Grid>
           <Row>
-            <Col xs={6} md={9}>
+            <Col xs={8} md={9}>
               <div className="paragraph">
                 <p>{ paragraph }</p>
               </div>
             </Col>
-            <Col xs={6} md={3} className="col-md-push-1">
+            <Col xs={4} md={3} className="col-md-push-1">
               <Image src={portrait} responsive />
             </Col>
           </Row>
@@ -50,10 +50,10 @@ class Home extends Component {
              </Panel.Heading>
              <Grid>
                <Row>
-                 <Col xs={6} md={4}>
+                 <Col xs={5} md={4}>
                   <Image src={nasaPhoto} responsive />
                  </Col>
-                 <Col xs={6} md={8}>
+                 <Col xs={7} md={8}>
                   <Panel.Body>
                     <p>
                       {paragraph}

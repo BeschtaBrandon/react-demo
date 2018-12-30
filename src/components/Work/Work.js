@@ -49,7 +49,7 @@ clients. Our teams uses Docker Swarm and hosts our services on Azure.
   }
 
   renderEducation = () => {
-    const paragraph = "Prior to starting my professional career, I studied Computer Sciences for four years at the University of Wisconsin - Madison. During that time, I was exposed to a variety of programming languages such as Assembly, C, C++, Java and PHP.";
+    const paragraph = "Prior to starting my professional career, I studied Computer Sciences for four years at the University of Wisconsin - Madison. During that time, I was exposed to a variety of programming languages such as Assembly, C, C++, Java and PHP. Additionally, learned about the importance of data structures, memory mangement, and the basic topics of database mangement systems.";
 
     return (
       <Panel>

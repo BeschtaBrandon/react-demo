@@ -14,6 +14,14 @@
     height: 225px;
     width: 235px;
   }
+  @media screen and (max-width: 375px) {
+    img {
+      margin: 75px 0px 5px 0px;
+      height: 115px;
+      width: 125px;
+    }
+  }
+
 }
 
 .well {
@@ -26,5 +34,17 @@
   img {
     height: 150px;
     width: 175px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .well {
+    margin-top: 5%;
+
+    img {
+      margin-top: 145%;
+      height: 115px;
+      width: 125px;
+    }
   }
 }
