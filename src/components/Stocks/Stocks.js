@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { PageHeader, Table } from 'react-bootstrap';
 import moment from 'moment';
 
+import callAPI from '../../shared/util';
 import './Stocks.scss'
+
+const STOCK_LIST = ['baba', 'aapl', 'lnt', 'cof', 'fb', 'tsla', 'v'];
 
 class Stocks extends Component {
 
@@ -23,93 +26,58 @@ class Stocks extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.iextrading.com/1.0/stock/baba/quote")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            baba: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+    for (var i = 0; i < STOCK_LIST.length; i++) {
+      callAPI(STOCK_LIST[i])
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result.symbol === 'LNT') {
+              this.setState({
+                lnt: result
+              });
+            } else if (result.symbol === 'AAPL') {
+              this.setState({
+                appl: result
+              });
+            } else if (result.symbol === 'BABA') {
+              this.setState({
+                baba: result
+              });
+            } else if (result.symbol === 'COF') {
+              this.setState({
+                cof: result
+              });
+            } else if (result.symbol === 'FB') {
+              this.setState({
+                fb: result
+              });
+            } else if (result.symbol === 'TSLA') {
+              this.setState({
+                tsla: result
+              });
+            } else if (result.symbol === 'V') {
+              this.setState({
+                v: result
+              });
+            }
+            this.setState({isLoaded: true})
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+      }
 
-    fetch("https://api.iextrading.com/1.0/stock/aapl/quote")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            appl: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-
-    fetch("https://api.iextrading.com/1.0/stock/lnt/quote")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            lnt: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-
-    fetch("https://api.iextrading.com/1.0/stock/fb/quote")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            fb: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-
-      fetch("https://api.iextrading.com/1.0/stock/cof/quote")
+      fetch("https://api.iextrading.com/1.0/stock/market/sector-performance")
         .then(res => res.json())
         .then(
           (result) => {
             this.setState({
               isLoaded: true,
-              cof: result
+              sectors: result
             });
           },
           // Note: it's important to handle errors here
@@ -122,72 +90,12 @@ class Stocks extends Component {
             });
           }
         )
-
-        fetch("https://api.iextrading.com/1.0/stock/tsla/quote")
-          .then(res => res.json())
-          .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                tsla: result
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
-
-          fetch("https://api.iextrading.com/1.0/stock/v/quote")
-            .then(res => res.json())
-            .then(
-              (result) => {
-                this.setState({
-                  isLoaded: true,
-                  v: result
-                });
-              },
-              // Note: it's important to handle errors here
-              // instead of a catch() block so that we don't swallow
-              // exceptions from actual bugs in components.
-              (error) => {
-                this.setState({
-                  isLoaded: true,
-                  error
-                });
-              }
-            )
-
-            fetch("https://api.iextrading.com/1.0/stock/market/sector-performance")
-              .then(res => res.json())
-              .then(
-                (result) => {
-                  this.setState({
-                    isLoaded: true,
-                    sectors: result
-                  });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                  this.setState({
-                    isLoaded: true,
-                    error
-                  });
-                }
-              )
   }
 
   renderStocksHeader = () => {
     return (
       <PageHeader>
-        Stocks <i class="fas fa-chart-line"></i>
+        Stocks <i className="fas fa-chart-line"></i>
       </PageHeader>
     );
   }
