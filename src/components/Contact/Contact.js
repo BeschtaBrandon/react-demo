@@ -7,7 +7,7 @@ class Contact extends Component {
   renderContactHeader = () => {
     return (
       <PageHeader>
-        Contact <i class="fas fa-envelope"></i>
+        Contact <i className="fas fa-envelope"></i>
       </PageHeader>
     );
   }

@@ -40,7 +40,7 @@ class News extends Component {
   renderNewsHeader = () => {
     return (
       <PageHeader>
-        Latest News <i class="fas fa-newspaper"></i>
+        Latest News <i className="fas fa-newspaper"></i>
       </PageHeader>
     );
   }
@@ -61,8 +61,8 @@ class News extends Component {
                   <div className="media-left">
                     <Image className="media-object" src={item.urlToImage} />
                   </div>
-                  <div class="media-body">
-                    <h4 class="media-heading">{item.title}</h4>
+                  <div className="media-body">
+                    <h4 className="media-heading">{item.title}</h4>
                     { item.description} {moment(item.publishedAt).format("MMMM D YYYY")}
                   </div>
               </ListGroupItem>
