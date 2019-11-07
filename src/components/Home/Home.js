@@ -11,7 +11,9 @@ class Home extends Component {
   renderAboutSection = () => {
 
     const curr_time = moment().format("dddd, MMMM Do YYYY, h:mm a");
-    const paragraph = "Currently working as web developer as of " + curr_time + ". Always eager to learn new web technologies and advance my software skills. Able to communicate well with a team. Also, thrive in a company who encourages their employees to question the status-quo and adapt to this ever-changing world.";
+    const paragraph = "Currently working as web developer as of " + curr_time +
+      ". Always eager to learn new web technologies and advance my software skills. Able to communicate well with a team. " +
+      "Also, thrive in a company who encourages their employees to collaborate and adapt to this ever-changing world.";
 
     return (
       <div className="well">
@@ -34,13 +36,13 @@ class Home extends Component {
   renderHomeHeader = () => {
     return (
       <PageHeader>
-        <small>Explore the world's boundaries and excite until we all unite</small>
+        <small>Explore the world's boundaries</small>
       </PageHeader>
     );
   }
 
   renderHomeContent = () => {
-      const paragraph = "You have the ability to control your reaction for every event that takes place in your life. That is why life is what you make out of it. Therefore, time on this world is precious, so try and dedicate each day into making memories that you and others may cherish forever.";
+      const paragraph = "You have the ability to control your reaction for every event that takes place in your life. That is why life is what you make out of it. Therefore, time on this world is precious, try and dedicate each day into making memories that you and others may cherish forever.";
 
       return (
         <div>

@@ -109,8 +109,6 @@ class Weather extends Component {
     const filteredData = this.filterWeatherData(list).slice(0,5);
     const weatherIcons = this.getIcons(filteredData);
 
-    console.log("City: ", city)
-
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -128,7 +126,13 @@ class Weather extends Component {
                 <Col className="col-md-push-1" xs={12} md={2}>
                   <li key={item.toString()}>
                     <div>
-                      { parseInt((item.main.temp - 273.15) * 9/5 + 32)}&#176;F { weatherIcons[i] } {item.weather[0].main}
+                      <p className="lead">
+                      {
+                        parseInt((item.main.temp - 273.15) * 9/5 + 32)
+                      }
+                        &#176;F
+                      </p>
+                      { weatherIcons[i] } {item.weather[0].main}
                       <p>{ moment(item.dt_txt).format("MMMM Do YYYY") }</p>
                     </div>
                   </li>
@@ -164,7 +168,13 @@ class Weather extends Component {
                 <Col className="col-md-push-1" xs={12} md={2}>
                   <li key={item.toString()}>
                     <div>
-                      { parseInt((item.main.temp - 273.15) * 9/5 + 32)}&#176;F { weatherIcons[i] } {item.weather[0].main}
+                      <p className="lead">
+                      {
+                        parseInt((item.main.temp - 273.15) * 9/5 + 32)
+                      }
+                      &#176;F
+                      </p>
+                      { weatherIcons[i] } {item.weather[0].main}
                       <p>{ moment(item.dt_txt).format("MMMM Do YYYY") }</p>
                     </div>
                   </li>

@@ -11,7 +11,6 @@ import {
 import './Stocks.scss'
 
 const STOCK_LIST = ['baba', 'aapl', 'lnt', 'cof', 'fb', 'tsla', 'v'];
-//const TOKEN = '?token=pk_47cd9e66407f482eb6ef65a34254f072';
 
 class Stocks extends Component {
 
